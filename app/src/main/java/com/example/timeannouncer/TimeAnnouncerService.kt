@@ -29,14 +29,11 @@ class TimeAnnouncerService : Service() {
         val notification = createNotification()
         startForeground(notificationId, notification)
 
-        // Mark running and notify UI
         ServiceStateStore.setRunning(applicationContext, true)
         sendStateBroadcast(true)
 
-        // Pre-warm TTS
         TtsManager.init(applicationContext)
 
-        // Listen for device unlock
         val filter = IntentFilter(Intent.ACTION_USER_PRESENT)
         registerReceiver(unlockReceiver, filter)
     }

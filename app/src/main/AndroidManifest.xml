@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Permissions -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
@@ -21,7 +20,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeAnnouncer">
 
-        <!-- Start service on boot -->
         <receiver
             android:name=".BootReceiver"
             android:enabled="true"
@@ -33,7 +31,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- Foreground service that listens for unlocks -->
         <service
             android:name=".TimeAnnouncerService"
             android:exported="false"
